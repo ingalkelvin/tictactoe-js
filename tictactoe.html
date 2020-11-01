@@ -1,0 +1,93 @@
+<!doctype html>
+<head>
+	<meta charset = "utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title> TICTACTOE</title>
+</head>
+
+<body>
+
+	<script src="utils.js"></script>
+	<script src="circle.js"></script>
+	<script src="letterX.js"></script>
+	<script src="square.js"></script>
+	<script src="line.js"></script>
+	<script src="plot.js"></script>
+	<script src="check.js"></script>
+
+	<center>
+		<canvas id="canvas" width="600" height="600"></canvas>
+		<br>
+		<textarea id="text"> </textarea>
+	</center>
+
+<script>
+
+	var player = false;
+
+	var flag = [0,0,0,0,0,0,0,0,0];
+
+	var line = new Line();
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var mouse = utils.captureMouse(canvas);
+	var text = document.getElementById('text');
+
+	var array = [];
+	var square;
+	
+	var forI;
+
+	var circle = new Circle();
+	var x = new LetterX();
+
+	window.onload = function() {
+
+
+		var widthSquare = 500;
+		var heightSquare = 500;
+
+		for(forI = 0; forI<9; forI++) {
+
+			square = new Square();
+			square.id = "square "+ forI;
+			square.x = canvas.width-widthSquare;
+			square.y = canvas.height-heightSquare;
+			array.push(square);
+			square.draw(context);
+
+			if(widthSquare == 100) {
+				widthSquare = 500;
+				heightSquare -= 200;
+			}
+			else
+				widthSquare -= 200;
+
+			if(square.id == "square 2") {
+				square.x = canvas.width-100;
+				square.y - canvas.height-500;
+			}
+
+		}
+		text.value = (player==false) ? "Current Player: 1" : "Current Player: 2";
+
+
+		canvas.addEventListener('click',function() {
+			if(!line.showLine) {
+				
+				PlotDrawing();
+				CheckIfCorrect();
+			}
+			else 
+				text.value = ('please refresh');
+
+		},false);
+		
+	};
+
+</script>
+
+
+</body>
+
+</html>
