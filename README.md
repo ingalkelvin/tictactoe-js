@@ -12,10 +12,6 @@ Tictactoe-js is made of javascript
 
 The game is very simple to play, just click the box until the one will win
 
-# paypal
+# Website
 
-paypal.me/kelvin.ynggal@gmail.com
-
-# BTC
-
-3LKLWWts1yTwPNYELkg1dokPpLkLnToDkF
+https://kelvin-ingal-dev-ed.my.site.com/
